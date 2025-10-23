@@ -3,7 +3,7 @@ import { MessageCircle, Instagram, Mail } from "lucide-react";
 import Image from "next/image";
 
 export function FinalCTA() {
-  const whatsappNumber = "5511999999999"; // Replace with actual number
+  const whatsappNumber = "5541988673290"; // Replace with actual number
   const whatsappMessage = encodeURIComponent(
     "Olá! Gostaria de fazer um orçamento para personalização."
   );
