@@ -7,10 +7,12 @@ export function Products() {
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Produtos de <span className="text-gradient-gold">Alta Qualidade</span>
+            Produtos de{" "}
+            <span className="text-gradient-gold">Alta Qualidade</span>
           </h2>
           <p className="text-[#EAEAEA]/70 text-lg max-w-2xl mx-auto">
-            Cada peça é cuidadosamente produzida com materiais premium e atenção aos detalhes
+            Cada peça é cuidadosamente produzida com materiais premium e atenção
+            aos detalhes.
           </p>
         </div>
 
@@ -28,8 +30,13 @@ export function Products() {
                 />
               </div>
 
-              <h3 className="text-2xl font-bold text-white mb-2">Canecas Premium</h3>
-              <p className="text-[#EAEAEA]/70">Cerâmica de alta qualidade com impressão durável e cores vibrantes</p>
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Canecas Premium
+              </h3>
+              <p className="text-[#EAEAEA]/70">
+                Cerâmica de alta qualidade com impressão durável e cores
+                vibrantes
+              </p>
             </div>
           </div>
 
@@ -46,14 +53,17 @@ export function Products() {
                 />
               </div>
 
-              <h3 className="text-2xl font-bold text-white mb-2">Camisetas Premium</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Camisetas Premium
+              </h3>
               <p className="text-[#EAEAEA]/70">
-                Tecido de primeira linha com estampas de alta definição e conforto excepcional
+                Tecido de primeira linha com estampas de alta definição e
+                conforto excepcional
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
