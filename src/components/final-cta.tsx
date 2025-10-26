@@ -59,7 +59,7 @@ export function FinalCTA() {
               {/* Social links */}
               <div className="flex gap-4">
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/midaspersonalizados"
                   className="w-10 h-10 bg-[#1A1A1A] border border-[#2A2A2A] rounded-full flex items-center justify-center hover:border-[#F2C94C]/50 hover:bg-[#F2C94C]/10 transition-all duration-300"
                   aria-label="Instagram"
                 >
@@ -75,7 +75,7 @@ export function FinalCTA() {
                   <MessageCircle className="w-5 h-5 text-[#F2C94C]" />
                 </a>
                 <a
-                  href="mailto:contato@midaspersonalizados.com.br"
+                  href="mailto:midaspersonalizadosoficial@gmail.com"
                   className="w-10 h-10 bg-[#1A1A1A] border border-[#2A2A2A] rounded-full flex items-center justify-center hover:border-[#F2C94C]/50 hover:bg-[#F2C94C]/10 transition-all duration-300"
                   aria-label="Email"
                 >
