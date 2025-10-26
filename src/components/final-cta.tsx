@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Instagram, Mail } from "lucide-react";
+import { MessageCircle, Instagram, Mail, Facebook } from "lucide-react";
 import Image from "next/image";
 
 export function FinalCTA() {
@@ -64,6 +64,13 @@ export function FinalCTA() {
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5 text-[#F2C94C]" />
+                </a>
+                 <a
+                  href="https://www.facebook.com/share/1GWMGqHB7p"
+                  className="w-10 h-10 bg-[#1A1A1A] border border-[#2A2A2A] rounded-full flex items-center justify-center hover:border-[#F2C94C]/50 hover:bg-[#F2C94C]/10 transition-all duration-300"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5 text-[#F2C94C]" />
                 </a>
                 <a
                   href={whatsappUrl}
