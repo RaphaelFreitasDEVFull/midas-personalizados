@@ -85,7 +85,7 @@ export function FinalCTA() {
 
               {/* Copyright */}
               <p className="text-[#EAEAEA]/40 text-sm">
-                © 2025 Midas Personalizados
+                © 2025 Midas Personalizados - Desenvolvido by Raphael Silva Freitas
               </p>
             </div>
           </div>
