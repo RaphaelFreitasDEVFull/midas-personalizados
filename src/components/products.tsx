@@ -24,7 +24,7 @@ export function Products() {
             <div className="relative z-10">
               <div className="aspect-square bg-[#0C0C0C] rounded-2xl mb-6 flex items-center justify-center overflow-hidden">
                 <img
-                  src="/premium-white-ceramic-mug-with-custom-design-on-da.jpg"
+                  src="/foto-1.jpg"
                   alt="Caneca personalizada premium"
                   className="w-full h-full object-cover"
                 />
