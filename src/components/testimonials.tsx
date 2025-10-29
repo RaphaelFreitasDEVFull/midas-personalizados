@@ -29,25 +29,26 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 2,
-    name: "Carlos Lima",
+    name: "Valdirene",
     title: "Processo estratégico e inspirador",
     review:
-      "Nunca pensei que um processo de autoconhecimento pudesse ser tão estratégico e inspirador.",
+      "Amei demais, ficou perfeita e linda! A embalagem já veio pronta para presente e com um cuidado incrível nos detalhes. Gostei tanto que vou até compartilhar no Instagram e marcar vocês. Atendimento excelente e muito atencioso. Super recomendo!",
     rating: 5,
     date: "25 de outubro de 2025",
     verified: true,
-    avatar: "CL",
+    avatar: "V",
   },
   {
     id: 3,
-    name: "Mariana Torres",
-    title: "Marca pessoal autêntica",
+    name: "Maria",
+    title:
+      "Peguei minhas canecas e ficaram lindas, eu amei! O capricho é visível em cada detalhe, e já vou presentear uma delas hoje. Fiquei encantada com o resultado!",
     review:
       "Senti que finalmente minha marca pessoal reflete quem eu realmente sou.",
     rating: 5,
     date: "19 de outubro de 2025",
     verified: true,
-    avatar: "MT",
+    avatar: "M",
   },
 ];
 
