@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 interface Testimonial {
   id: number;
   name: string;
-  title: string;
+
   review: string;
   rating: number;
   date: string;
@@ -19,7 +19,6 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Daiane",
-    title: "Transformação completa no mercado",
     review:
       "Ficaram lindas, perfeitas! Eu amei o resultado e tenho certeza que elas vão adorar também. Atendimento excelente e muito atencioso, já combinamos a entrega e foi tudo super rápido. Recomendo demais!",
     rating: 5,
@@ -30,9 +29,8 @@ const testimonials: Testimonial[] = [
   {
     id: 2,
     name: "Valdirene",
-    title: "Processo estratégico e inspirador",
     review:
-      "Amei demais, ficou perfeita e linda! A embalagem já veio pronta para presente e com um cuidado incrível nos detalhes. Gostei tanto que vou até compartilhar no Instagram e marcar vocês. Atendimento excelente e muito atencioso. Super recomendo!",
+      "Simplesmente amei! Capricho nos detalhes e atendimento excelente. Indico de olhos fechados!",
     rating: 5,
     date: "25 de outubro de 2025",
     verified: true,
@@ -41,10 +39,7 @@ const testimonials: Testimonial[] = [
   {
     id: 3,
     name: "Maria",
-    title:
-      "Peguei minhas canecas e ficaram lindas, eu amei! O capricho é visível em cada detalhe, e já vou presentear uma delas hoje. Fiquei encantada com o resultado!",
-    review:
-      "Senti que finalmente minha marca pessoal reflete quem eu realmente sou.",
+    review: "Ficaram lindas, perfeitas, as crianças adoraram!",
     rating: 5,
     date: "19 de outubro de 2025",
     verified: true,
@@ -105,7 +100,7 @@ export default function Testimonials() {
           <div className="bg-card border-2 border-primary/30 rounded-lg p-6 md:p-8 shadow-2xl transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 animate-fade-in-up">
             {/* User Info */}
             <div className="flex items-start gap-4 mb-4">
-              <div className="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center text-primary font-semibold flex-shrink-0 text-base">
+              <div className="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center text-primary font-semibold shrink-0 text-base">
                 {currentTestimonial.avatar}
               </div>
               <div className="flex-1">
@@ -130,23 +125,11 @@ export default function Testimonials() {
             </div>
 
             {/* Review Title */}
-            <h4 className="font-bold text-foreground text-lg mb-2">
-              {currentTestimonial.title}
-            </h4>
 
             {/* Review Date */}
             <div className="flex items-center gap-2 mb-3 text-sm text-muted-foreground">
               <span>Avaliado no Brasil em {currentTestimonial.date}</span>
             </div>
-
-            {/* Verified Badge */}
-            {currentTestimonial.verified && (
-              <div className="mb-4">
-                <span className="text-sm font-semibold text-primary">
-                  Compra verificada
-                </span>
-              </div>
-            )}
 
             {/* Review Text */}
             <p className="text-foreground leading-relaxed mb-6 text-base">
