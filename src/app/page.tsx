@@ -1,8 +1,9 @@
-import { Hero } from "@/components/hero"
-import { Products } from "@/components/products"
-import { HowItWorks } from "@/components/how-it-works"
-import { Testimonials } from "@/components/testimonials"
-import { FinalCTA } from "@/components/final-cta"
+import { Hero } from "@/components/hero";
+import { Products } from "@/components/products";
+import { HowItWorks } from "@/components/how-it-works";
+
+import { FinalCTA } from "@/components/final-cta";
+import Testimonials from "@/components/testimonials";
 
 export default function Home() {
   return (
@@ -13,5 +14,5 @@ export default function Home() {
       <Testimonials />
       <FinalCTA />
     </main>
-  )
+  );
 }
