@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -13,6 +14,7 @@ interface Testimonial {
   date: string;
   verified: boolean;
   avatar: string;
+  imageUrl?: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -25,6 +27,7 @@ const testimonials: Testimonial[] = [
     date: "29 de outubro de 2025",
     verified: true,
     avatar: "D",
+    imageUrl: "/foto-d-1.jpeg",
   },
   {
     id: 2,
@@ -35,6 +38,7 @@ const testimonials: Testimonial[] = [
     date: "25 de outubro de 2025",
     verified: true,
     avatar: "V",
+    imageUrl: "/foto-d-2.jpeg",
   },
   {
     id: 3,
@@ -44,6 +48,7 @@ const testimonials: Testimonial[] = [
     date: "19 de outubro de 2025",
     verified: true,
     avatar: "M",
+    imageUrl: "/foto-d-3.jpeg",
   },
 ];
 
@@ -101,7 +106,17 @@ export default function Testimonials() {
             {/* User Info */}
             <div className="flex items-start gap-4 mb-4">
               <div className="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center text-primary font-semibold shrink-0 text-base">
-                {currentTestimonial.avatar}
+                {currentTestimonial.imageUrl ? (
+                  <Image
+                    src={currentTestimonial.imageUrl}
+                    alt={currentTestimonial.name}
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover"
+                  />
+                ) : (
+                  currentTestimonial.avatar
+                )}
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-foreground text-lg">
