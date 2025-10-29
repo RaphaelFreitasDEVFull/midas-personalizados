@@ -1,199 +1,183 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { MessageCircle, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Testimonial {
   id: number;
   name: string;
-  message: string;
+  title: string;
+  review: string;
+  rating: number;
+  date: string;
+  verified: boolean;
   avatar: string;
-  isClient: boolean;
-  delay: number;
 }
 
 const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Daiane",
-    message: "Ficaram Lindas, perfeitas",
+    title: "Transformação completa no mercado",
+    review:
+      "Ficaram lindas, perfeitas! Eu amei o resultado e tenho certeza que elas vão adorar também. Atendimento excelente e muito atencioso, já combinamos a entrega e foi tudo super rápido. Recomendo demais!",
+    rating: 5,
+    date: "29 de outubro de 2025",
+    verified: true,
     avatar: "D",
-    isClient: false,
-    delay: 0,
   },
   {
     id: 2,
-    name: "Midas Personalizados",
-    message: "Que bom que gostou, amanhã ja entrego para você! ✨",
-    avatar: "MP",
-    isClient: true,
-    delay: 600,
+    name: "Carlos Lima",
+    title: "Processo estratégico e inspirador",
+    review:
+      "Nunca pensei que um processo de autoconhecimento pudesse ser tão estratégico e inspirador.",
+    rating: 5,
+    date: "25 de outubro de 2025",
+    verified: true,
+    avatar: "CL",
   },
   {
     id: 3,
-    name: "Daiane",
-    message: "Okay, elas vão adorar",
-    avatar: "D",
-    isClient: false,
-    delay: 1200,
+    name: "Mariana Torres",
+    title: "Marca pessoal autêntica",
+    review:
+      "Senti que finalmente minha marca pessoal reflete quem eu realmente sou.",
+    rating: 5,
+    date: "19 de outubro de 2025",
+    verified: true,
+    avatar: "MT",
   },
 ];
 
 export default function Testimonials() {
-  const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
-  const [showTyping, setShowTyping] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    testimonials.forEach((testimonial, index) => {
-      setTimeout(() => {
-        if (index < testimonials.length - 1) {
-          setShowTyping(true);
-          setTimeout(() => {
-            setShowTyping(false);
-            setVisibleMessages((prev) => [...prev, testimonial.id]);
-          }, 800);
-        } else {
-          setVisibleMessages((prev) => [...prev, testimonial.id]);
-        }
-      }, testimonial.delay);
-    });
-  }, []);
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="relative min-h-screen bg-background py-20 px-4 overflow-hidden">
-      {/* Efeito de brilho dourado no fundo */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-[120px] animate-gold-glow" />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-[120px] animate-gold-glow"
-          style={{ animationDelay: "1s" }}
-        />
-      </div>
+    <section className="relative min-h-screen bg-background py-20 px-4">
+      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent opacity-50" />
 
       <div className="relative max-w-4xl mx-auto">
-        {/* Cabeçalho */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-primary" />
-            <MessageCircle className="w-8 h-8 text-primary" />
-            <Sparkles className="w-6 h-6 text-primary" />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             O que nossos clientes dizem
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Conversas reais, transformações verdadeiras
-          </p>
         </div>
 
-        {/* Chat Container */}
-        <div className="bg-card/50 backdrop-blur-sm rounded-3xl border border-border/50 p-6 md:p-10 shadow-2xl">
-          <div className="space-y-6">
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className={`flex gap-3 ${
-                  testimonial.isClient ? "justify-end" : "justify-start"
-                } ${
-                  visibleMessages.includes(testimonial.id)
-                    ? "animate-fade-in-up opacity-100"
-                    : "opacity-0"
-                }`}
-                style={{
-                  animationDelay: `${testimonial.delay}ms`,
-                }}
-              >
-                {/* Avatar (empresa à esquerda) */}
-                {!testimonial.isClient && (
-                  <div className="shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-secondary border-2 border-primary flex items-center justify-center text-primary font-semibold text-sm">
-                      {testimonial.avatar}
-                    </div>
-                  </div>
-                )}
+        {/* Carousel container */}
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 rounded-full bg-card shadow-lg hover:bg-primary hover:text-primary-foreground border-primary/30 transition-all duration-300"
+            onClick={prevTestimonial}
+            aria-label="Depoimento anterior"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </Button>
 
-                {/* Mensagem */}
-                <div
-                  className={`max-w-[80%] md:max-w-[70%] ${
-                    testimonial.isClient
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary border-2 border-primary/50 text-secondary-foreground"
-                  } rounded-2xl px-5 py-4 shadow-lg`}
-                >
-                  <p className="text-sm md:text-base leading-relaxed mb-2">
-                    {testimonial.message}
-                  </p>
-                  <p
-                    className={`text-xs font-medium ${
-                      testimonial.isClient
-                        ? "text-primary-foreground/80"
-                        : "text-primary"
-                    }`}
-                  >
-                    {testimonial.name}
-                  </p>
-                </div>
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 rounded-full bg-card shadow-lg hover:bg-primary hover:text-primary-foreground border-primary/30 transition-all duration-300"
+            onClick={nextTestimonial}
+            aria-label="Próximo depoimento"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </Button>
 
-                {/* Avatar (cliente à direita) */}
-                {testimonial.isClient && (
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold text-sm shadow-lg">
-                      {testimonial.avatar}
-                    </div>
-                  </div>
-                )}
+          <div className="bg-card border-2 border-primary/30 rounded-lg p-6 md:p-8 shadow-2xl transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20 animate-fade-in-up">
+            {/* User Info */}
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center text-primary font-semibold flex-shrink-0 text-base">
+                {currentTestimonial.avatar}
               </div>
-            ))}
+              <div className="flex-1">
+                <h3 className="font-semibold text-foreground text-lg">
+                  {currentTestimonial.name}
+                </h3>
+              </div>
+            </div>
 
-            {/* Indicador de digitação */}
-            {showTyping && (
-              <div className="flex gap-3 justify-start animate-fade-in-up">
-                <div className="flex-shrink-0">
-                  <div className="w-10 h-10 rounded-full bg-secondary border-2 border-primary flex items-center justify-center text-primary font-semibold text-sm">
-                    MP
-                  </div>
-                </div>
-                <div className="bg-secondary border-2 border-primary/50 rounded-2xl px-5 py-4 flex items-center gap-1">
-                  <span className="w-2 h-2 bg-primary rounded-full animate-typing" />
-                  <span
-                    className="w-2 h-2 bg-primary rounded-full animate-typing"
-                    style={{ animationDelay: "0.2s" }}
-                  />
-                  <span
-                    className="w-2 h-2 bg-primary rounded-full animate-typing"
-                    style={{ animationDelay: "0.4s" }}
-                  />
-                </div>
+            {/* Rating */}
+            <div className="flex items-center gap-1 mb-3">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className={`w-5 h-5 ${
+                    i < currentTestimonial.rating
+                      ? "fill-primary text-primary"
+                      : "fill-muted text-muted"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Review Title */}
+            <h4 className="font-bold text-foreground text-lg mb-2">
+              {currentTestimonial.title}
+            </h4>
+
+            {/* Review Date */}
+            <div className="flex items-center gap-2 mb-3 text-sm text-muted-foreground">
+              <span>Avaliado no Brasil em {currentTestimonial.date}</span>
+            </div>
+
+            {/* Verified Badge */}
+            {currentTestimonial.verified && (
+              <div className="mb-4">
+                <span className="text-sm font-semibold text-primary">
+                  Compra verificada
+                </span>
               </div>
             )}
+
+            {/* Review Text */}
+            <p className="text-foreground leading-relaxed mb-6 text-base">
+              {currentTestimonial.review}
+            </p>
           </div>
 
-          {/* Botão CTA */}
-          <div
-            className="mt-12 text-center animate-fade-in-up"
-            style={{ animationDelay: "3500ms" }}
-          >
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              Deixe seu depoimento
-            </Button>
+          {/* Carousel Indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-primary w-8 shadow-lg shadow-primary/50"
+                    : "bg-muted hover:bg-primary/50 w-2"
+                }`}
+                aria-label={`Ir para depoimento ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
 
-        {/* Decoração inferior */}
-        <div
-          className="mt-8 text-center text-muted-foreground text-sm animate-fade-in-up"
-          style={{ animationDelay: "4000ms" }}
-        >
-          <p className="flex items-center justify-center gap-2">
-            <Sparkles className="w-4 h-4 text-primary" />
-            Transformando personalidades em marcas de ouro
-            <Sparkles className="w-4 h-4 text-primary" />
-          </p>
+        {/* CTA Button */}
+        <div className="mt-12 text-center">
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 rounded-full shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 animate-gold-glow"
+          >
+            Deixe seu depoimento
+          </Button>
         </div>
       </div>
     </section>
