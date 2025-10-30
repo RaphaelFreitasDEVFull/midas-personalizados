@@ -20,18 +20,18 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Daiane",
+    name: "Daiane da Silva",
     review:
       "Ficaram lindas, perfeitas! Eu amei o resultado e tenho certeza que elas vão adorar também. Atendimento excelente e muito atencioso, já combinamos a entrega e foi tudo super rápido. Recomendo demais!",
     rating: 5,
     date: "29 de outubro de 2025",
     verified: true,
-    avatar: "D",
+    avatar: "DS",
     imageUrl: "/foto-d-1.jpeg",
   },
   {
     id: 2,
-    name: "Valdirene",
+    name: "Valdirene Gouvea",
     review:
       "Simplesmente amei! Capricho nos detalhes e atendimento excelente. Indico de olhos fechados!",
     rating: 5,
@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 3,
-    name: "Maria",
+    name: "Maria Fernandes",
     review: "Ficaram lindas, perfeitas, as crianças adoraram!",
     rating: 5,
     date: "19 de outubro de 2025",
