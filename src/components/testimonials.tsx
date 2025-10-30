@@ -48,7 +48,7 @@ const testimonials: Testimonial[] = [
     date: "19 de outubro de 2025",
     verified: true,
     avatar: "M",
-    imageUrl: "/foto-4.jpeg",
+    imageUrl: "/foto-d-4.jpeg",
   },
 ];
 
