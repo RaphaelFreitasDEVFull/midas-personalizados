@@ -112,7 +112,7 @@ export default function Testimonials() {
                     alt={currentTestimonial.name}
                     width={48}
                     height={48}
-                    className="rounded-full object-cover"
+                    className="rounded-full"
                   />
                 ) : (
                   currentTestimonial.avatar
