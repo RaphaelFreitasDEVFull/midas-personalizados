@@ -62,9 +62,9 @@ export function MugCustomizer() {
   const handleSendToWhatsApp = () => {
     const price = getCurrentPrice();
     const message = `
-🎨 *Pedido de Personalização - Midas Personalizados*
+🎁 *Pedido de Personalização - Midas Personalizados*
 
-📦 *Tipo de Caneca:* ${
+☑️ *Tipo de Caneca:* ${
       mugType === "branca"
         ? "Caneca Branca"
         : mugType === "colorida"
