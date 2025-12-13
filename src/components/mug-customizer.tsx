@@ -84,7 +84,7 @@ ${artDescription || "Nenhuma descrição fornecida"}
 Aguardo retorno para finalizar meu pedido! 😊
     `.trim();
 
-    const phoneNumber = "5541988673290"; // Substitua pelo número do WhatsApp
+    const phoneNumber = "5541988673290";
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
