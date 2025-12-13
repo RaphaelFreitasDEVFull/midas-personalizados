@@ -24,6 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head> 
+          <meta charSet="UTF-8" />
+      </head>
       <body
         className={`${geist.variable} font-sans antialiased`}
         suppressHydrationWarning
