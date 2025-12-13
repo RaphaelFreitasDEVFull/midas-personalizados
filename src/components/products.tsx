@@ -1,3 +1,7 @@
+"use client";
+
+import { redirect } from "next/navigation";
+
 export function Products() {
   return (
     <section className="py-24 px-4 relative overflow-hidden">
@@ -16,9 +20,12 @@ export function Products() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto cursor-pointer">
           {/* Mug mockup */}
-          <div className="group relative bg-gradient-to-br from-[#1A1A1A] to-[#0C0C0C] rounded-3xl p-8 border border-[#2A2A2A] hover:border-[#F2C94C]/30 transition-all duration-300">
+          <div
+            onClick={() => redirect("/personalizar-caneca")}
+            className="group relative bg-gradient-to-br from-[#1A1A1A] to-[#0C0C0C] rounded-3xl p-8 border border-[#2A2A2A] hover:border-[#F2C94C]/30 transition-all duration-300"
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-[#F2C94C]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
 
             <div className="relative z-10">
