@@ -15,31 +15,35 @@ import { Send } from "lucide-react";
 import Image from "next/image";
 
 type MugType = "branca" | "colorida" | "glitter";
-type MugColor = "vermelho" | "azul" | "verde" | "rosa" | "preto" | "amarelo";
+type MugColor = "vermelho"| "azul" | "laranja" | "lilas" | "preto" | "rosa" | "verde"  ;
 
 const mugPrices: Record<MugType, number | Record<MugColor, number>> = {
-  branca: 25.0,
+  branca: 30.0,
   colorida: {
-    vermelho: 35.0,
-    azul: 35.0,
-    verde: 35.0,
-    rosa: 35.0,
-    preto: 35.0,
-    amarelo: 35.0,
+    vermelho: 40.0,
+    azul: 40.0,
+    verde: 40.0,
+    rosa: 40.0,
+    preto: 40.0,
+    laranja: 40.0,
+    lilas: 40.0
+    
   },
   glitter: {
-    vermelho: 45.0,
-    azul: 45.0,
-    verde: 45.0,
-    rosa: 45.0,
-    preto: 45.0,
-    amarelo: 45.0,
+    vermelho: 50.0,
+    azul: 50.0,
+    verde: 50.0,
+    rosa: 50.0,
+    preto: 50.0,
+    laranja: 50.0,
+    lilas: 50.0
+    
   },
 };
 
 export function MugCustomizer() {
   const [mugType, setMugType] = useState<MugType>("branca");
-  const [mugColor, setMugColor] = useState<MugColor>("vermelho");
+  const [mugColor, setMugColor] = useState<MugColor>("azul");
   const [artDescription, setArtDescription] = useState("");
 
   const getMugImage = () => {
@@ -179,9 +183,13 @@ Aguardo retorno para finalizar meu pedido! 😊
                 <SelectItem value="preto" className="text-popover-foreground">
                   Preto
                 </SelectItem>
-                <SelectItem value="amarelo" className="text-popover-foreground">
-                  Amarelo
+                <SelectItem value="lilas" className="text-popover-foreground">
+                  Lilás 
                 </SelectItem>
+                <SelectItem value="laranja" className="text-popover-foreground">
+                  Laranja 
+                </SelectItem>
+
               </SelectContent>
             </Select>
           </div>
