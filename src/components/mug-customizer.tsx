@@ -15,7 +15,14 @@ import { Send } from "lucide-react";
 import Image from "next/image";
 
 type MugType = "branca" | "colorida" | "glitter";
-type MugColor = "vermelho"| "azul" | "laranja" | "lilas" | "preto" | "rosa" | "verde"  ;
+type MugColor =
+  | "vermelho"
+  | "azul"
+  | "laranja"
+  | "lilas"
+  | "preto"
+  | "rosa"
+  | "verde";
 
 const mugPrices: Record<MugType, number | Record<MugColor, number>> = {
   branca: 30.0,
@@ -26,8 +33,7 @@ const mugPrices: Record<MugType, number | Record<MugColor, number>> = {
     rosa: 40.0,
     preto: 40.0,
     laranja: 40.0,
-    lilas: 40.0
-    
+    lilas: 40.0,
   },
   glitter: {
     vermelho: 50.0,
@@ -36,8 +42,7 @@ const mugPrices: Record<MugType, number | Record<MugColor, number>> = {
     rosa: 50.0,
     preto: 50.0,
     laranja: 50.0,
-    lilas: 50.0
-    
+    lilas: 50.0,
   },
 };
 
@@ -72,8 +77,8 @@ export function MugCustomizer() {
       mugType === "branca"
         ? "Caneca Branca"
         : mugType === "colorida"
-        ? "Caneca Colorida"
-        : "Caneca com Glitter"
+          ? "Caneca Colorida"
+          : "Caneca com Glitter"
     }
 ${
   mugType !== "branca"
@@ -88,7 +93,7 @@ ${artDescription || "Nenhuma descrição fornecida"}
 Aguardo retorno para finalizar meu pedido! 😊
     `.trim();
 
-    const phoneNumber = "5541988673290";
+    const phoneNumber = "5541984602192";
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
@@ -184,12 +189,11 @@ Aguardo retorno para finalizar meu pedido! 😊
                   Preto
                 </SelectItem>
                 <SelectItem value="lilas" className="text-popover-foreground">
-                  Lilás 
+                  Lilás
                 </SelectItem>
                 <SelectItem value="laranja" className="text-popover-foreground">
-                  Laranja 
+                  Laranja
                 </SelectItem>
-
               </SelectContent>
             </Select>
           </div>

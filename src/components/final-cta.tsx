@@ -3,9 +3,9 @@ import { MessageCircle, Instagram, Mail, Facebook } from "lucide-react";
 import Image from "next/image";
 
 export function FinalCTA() {
-  const whatsappNumber = "5541988673290"; // Replace with actual number
+  const whatsappNumber = "5541984602192"; // Replace with actual number
   const whatsappMessage = encodeURIComponent(
-    "Olá! Gostaria de fazer um orçamento para personalização."
+    "Olá! Gostaria de fazer um orçamento para personalização.",
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
@@ -65,7 +65,7 @@ export function FinalCTA() {
                 >
                   <Instagram className="w-5 h-5 text-[#F2C94C]" />
                 </a>
-                 <a
+                <a
                   href="https://www.facebook.com/share/1GWMGqHB7p"
                   className="w-10 h-10 bg-[#1A1A1A] border border-[#2A2A2A] rounded-full flex items-center justify-center hover:border-[#F2C94C]/50 hover:bg-[#F2C94C]/10 transition-all duration-300"
                   aria-label="Facebook"
@@ -92,7 +92,8 @@ export function FinalCTA() {
 
               {/* Copyright */}
               <p className="text-[#EAEAEA]/40 text-sm">
-                © 2025 Midas Personalizados - Desenvolvido by Raphael Silva Freitas
+                © 2025 Midas Personalizados - Desenvolvido by Raphael Silva
+                Freitas
               </p>
             </div>
           </div>
