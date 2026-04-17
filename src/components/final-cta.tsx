@@ -47,7 +47,7 @@ export function FinalCTA() {
                 <div className="mb-8 relative">
                   <div className="absolute inset-0 bg-[#F2C94C] blur-2xl opacity-30 animate-pulse" />
                   <Image
-                    src={"/logo.png"}
+                    src={"/logo-1.png"}
                     alt="Midas Personalizados"
                     width={200}
                     height={100}
