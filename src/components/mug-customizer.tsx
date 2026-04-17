@@ -52,24 +52,19 @@ export function MugCustomizer() {
   const [artDescription, setArtDescription] = useState("");
 
   const getMugImage = () => {
-    if (mugType === "branca") {
-      return "/mugs/branca.jpg";
-    }
-    if (mugType === "colorida") {
-      return `/mugs/colorida-${mugColor}.jpg`;
-    }
+    if (mugType === "branca") return "/mugs/branca.jpg";
+    if (mugType === "colorida") return `/mugs/colorida-${mugColor}.jpg`;
     return `/mugs/glitter-${mugColor}.jpg`;
   };
 
   const getCurrentPrice = () => {
-    if (mugType === "branca") {
-      return mugPrices.branca as number;
-    }
+    if (mugType === "branca") return mugPrices.branca as number;
     return (mugPrices[mugType] as Record<MugColor, number>)[mugColor];
   };
 
   const handleSendToWhatsApp = () => {
     const price = getCurrentPrice();
+
     const message = `
 🎁 *Pedido de Personalização - Midas Personalizados*
 
@@ -101,124 +96,98 @@ Aguardo retorno para finalizar meu pedido! 😊
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
-      {/* Image Preview */}
-      <div className="relative aspect-square rounded-xl bg-card p-8 flex items-center justify-center border border-border gold-glow">
+    // Mobile: coluna com scroll | Desktop: linha sem scroll
+    <div className="flex h-full w-full flex-col overflow-y-auto md:flex-row md:overflow-hidden md:gap-12">
+      {/* 🔥 PREVIEW */}
+      {/* Mobile: altura fixa para o preview não sumir | Desktop: flex-1 ocupa tudo */}
+      <div
+        className="relative flex items-center justify-center rounded-2xl border border-border bg-card p-6 gold-glow overflow-hidden
+                      h-64 w-full shrink-0
+                      md:h-auto md:flex-1 md:p-10"
+      >
         <div className="relative w-full h-full">
           <Image
-            src={getMugImage() || "/placeholder.svg"}
+            src={getMugImage()}
             alt="Preview da caneca"
             fill
-            className="object-contain rounded-3xl"
+            className="object-contain"
             priority
           />
         </div>
-        <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-bold text-xl gold-glow">
+
+        <div
+          className="absolute top-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-xl font-bold text-base shadow-lg
+                        md:top-6 md:right-6 md:px-6 md:py-3 md:text-xl"
+        >
           R$ {getCurrentPrice().toFixed(2)}
         </div>
       </div>
 
-      {/* Configuration Form */}
-      <div className="space-y-6">
-        <div className="space-y-3">
-          <Label
-            htmlFor="mug-type"
-            className="text-base font-semibold text-foreground"
-          >
-            Tipo de Caneca
-          </Label>
-          <Select
-            value={mugType}
-            onValueChange={(value) => setMugType(value as MugType)}
-          >
-            <SelectTrigger
-              id="mug-type"
-              className="h-12 bg-card border-yellow-500 text-card-foreground"
-            >
-              <SelectValue placeholder="Selecione o tipo" />
-            </SelectTrigger>
-            <SelectContent className="bg-popover border-border">
-              <SelectItem value="branca" className="text-popover-foreground">
-                Caneca Branca
-              </SelectItem>
-              <SelectItem value="colorida" className="text-popover-foreground">
-                Caneca Colorida
-              </SelectItem>
-              <SelectItem value="glitter" className="text-popover-foreground">
-                Caneca com Glitter
-              </SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        {mugType !== "branca" && (
-          <div className="space-y-3">
-            <Label
-              htmlFor="mug-color"
-              className="text-base font-semibold text-foreground"
-            >
-              Cor da Caneca
-            </Label>
+      {/* 🔥 SIDEBAR */}
+      {/* Mobile: cresce e empurra botão para baixo | Desktop: largura fixa, scroll interno */}
+      <div
+        className="flex w-full flex-col justify-between gap-6 py-6
+                      md:max-w-md md:overflow-y-auto md:py-0"
+      >
+        <div className="space-y-6">
+          {/* Tipo */}
+          <div className="space-y-2">
+            <Label className="text-sm font-semibold">Tipo de Caneca</Label>
             <Select
-              value={mugColor}
-              onValueChange={(value) => setMugColor(value as MugColor)}
+              value={mugType}
+              onValueChange={(value) => setMugType(value as MugType)}
             >
-              <SelectTrigger
-                id="mug-color"
-                className="h-12 bg-card border-border text-card-foreground"
-              >
-                <SelectValue placeholder="Selecione a cor" />
+              <SelectTrigger className="h-12 bg-card border-yellow-500">
+                <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-popover border-border">
-                <SelectItem
-                  value="vermelho"
-                  className="text-popover-foreground"
-                >
-                  Vermelho
-                </SelectItem>
-                <SelectItem value="azul" className="text-popover-foreground">
-                  Azul
-                </SelectItem>
-                <SelectItem value="verde" className="text-popover-foreground">
-                  Verde
-                </SelectItem>
-                <SelectItem value="rosa" className="text-popover-foreground">
-                  Rosa
-                </SelectItem>
-                <SelectItem value="preto" className="text-popover-foreground">
-                  Preto
-                </SelectItem>
-                <SelectItem value="lilas" className="text-popover-foreground">
-                  Lilás
-                </SelectItem>
-                <SelectItem value="laranja" className="text-popover-foreground">
-                  Laranja
-                </SelectItem>
+              <SelectContent>
+                <SelectItem value="branca">Caneca Branca</SelectItem>
+                <SelectItem value="colorida">Caneca Colorida</SelectItem>
+                <SelectItem value="glitter">Caneca com Glitter</SelectItem>
               </SelectContent>
             </Select>
           </div>
-        )}
 
-        <div className="space-y-3">
-          <Label
-            htmlFor="art-description"
-            className="text-base font-semibold text-foreground"
-          >
-            Descrição da Arte
-          </Label>
-          <Textarea
-            id="art-description"
-            placeholder="Descreva como você gostaria que fosse a arte da sua caneca..."
-            value={artDescription}
-            onChange={(e) => setArtDescription(e.target.value)}
-            className="min-h-[150px] resize-none bg-card border-border text-card-foreground placeholder:text-muted-foreground"
-          />
+          {/* Cor */}
+          {mugType !== "branca" && (
+            <div className="space-y-2">
+              <Label className="text-sm font-semibold">Cor</Label>
+              <Select
+                value={mugColor}
+                onValueChange={(value) => setMugColor(value as MugColor)}
+              >
+                <SelectTrigger className="h-12 bg-card">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="vermelho">Vermelho</SelectItem>
+                  <SelectItem value="azul">Azul</SelectItem>
+                  <SelectItem value="verde">Verde</SelectItem>
+                  <SelectItem value="rosa">Rosa</SelectItem>
+                  <SelectItem value="preto">Preto</SelectItem>
+                  <SelectItem value="lilas">Lilás</SelectItem>
+                  <SelectItem value="laranja">Laranja</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          )}
+
+          {/* Descrição */}
+          <div className="space-y-2">
+            <Label className="text-sm font-semibold">Descrição da Arte</Label>
+            <Textarea
+              placeholder="Descreva sua arte..."
+              value={artDescription}
+              onChange={(e) => setArtDescription(e.target.value)}
+              className="min-h-35 resize-none bg-card"
+            />
+          </div>
         </div>
 
+        {/* BOTÃO */}
         <Button
           onClick={handleSendToWhatsApp}
-          className="w-full h-12 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 gold-glow-hover"
-          size="lg"
+          className="h-12 w-full text-base font-semibold bg-primary hover:bg-primary/90"
         >
           <Send className="mr-2 h-5 w-5" />
           Enviar para WhatsApp
