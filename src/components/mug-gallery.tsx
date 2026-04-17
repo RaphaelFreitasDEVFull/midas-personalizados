@@ -13,42 +13,42 @@ import Image from "next/image";
 const galleryImages = [
   {
     id: 1,
-    url: "/galerias/01.jifif",
+    url: "/galerias/01.png",
     alt: "Caneca",
   },
   {
     id: 2,
-    url: "/galerias/02.jifif",
+    url: "/galerias/02.png",
     alt: "Caneca",
   },
   {
     id: 3,
-    url: "/galerias/03.jifif",
+    url: "/galerias/03.png",
     alt: "Caneca",
   },
   {
     id: 4,
-    url: "/galerias/04.jifif",
+    url: "/galerias/04.png",
     alt: "Caneca",
   },
   {
     id: 5,
-    url: "/galerias/05.jifif",
+    url: "/galerias/05.png",
     alt: "Caneca",
   },
   {
     id: 6,
-    url: "/galerias/06.jifif",
+    url: "/galerias/06.png",
     alt: "Caneca",
   },
   {
     id: 7,
-    url: "/galerias/07.jifif",
+    url: "/galerias/07.png",
     alt: "Caneca",
   },
   {
     id: 8,
-    url: "/galerias/08.jifif",
+    url: "/galerias/08.png",
     alt: "Caneca",
   },
 ];
