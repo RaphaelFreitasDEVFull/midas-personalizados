@@ -11,8 +11,8 @@ export default function PersonalizarPage() {
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center">
-            <Button onClick={() => redirect("/")}>
+          <div className="flex md:flex-row flex-col items-center gap-8">
+            <Button onClick={() => redirect("/")} className="">
               <ArrowLeft className="mr-2 h-4 w-4" /> Voltar
             </Button>
             <div className="flex-1 flex items-center justify-center flex-col">
