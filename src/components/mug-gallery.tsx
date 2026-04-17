@@ -26,6 +26,31 @@ const galleryImages = [
     url: "/galerias/03.jifif",
     alt: "Caneca",
   },
+  {
+    id: 4,
+    url: "/galerias/04.jifif",
+    alt: "Caneca",
+  },
+  {
+    id: 5,
+    url: "/galerias/05.jifif",
+    alt: "Caneca",
+  },
+  {
+    id: 6,
+    url: "/galerias/06.jifif",
+    alt: "Caneca",
+  },
+  {
+    id: 7,
+    url: "/galerias/07.jifif",
+    alt: "Caneca",
+  },
+  {
+    id: 8,
+    url: "/galerias/08.jifif",
+    alt: "Caneca",
+  },
 ];
 
 export function MugGallery() {
