@@ -13,33 +13,18 @@ import Image from "next/image";
 const galleryImages = [
   {
     id: 1,
-    url: "/custom-printed-mug-with-floral-design.jpg",
-    alt: "Caneca com design floral",
+    url: "/galerias/01.jifif",
+    alt: "Caneca",
   },
   {
     id: 2,
-    url: "/custom-printed-mug-with-geometric-pattern.jpg",
-    alt: "Caneca com padrão geométrico",
+    url: "/galerias/02.jifif",
+    alt: "Caneca",
   },
   {
     id: 3,
-    url: "/custom-printed-mug-with-pet-photo.jpg",
-    alt: "Caneca com foto de pet",
-  },
-  {
-    id: 4,
-    url: "/custom-printed-mug-with-quote.jpg",
-    alt: "Caneca com frase inspiradora",
-  },
-  {
-    id: 5,
-    url: "/custom-printed-red-glitter-mug.jpg",
-    alt: "Caneca vermelha com glitter",
-  },
-  {
-    id: 6,
-    url: "/custom-printed-blue-mug-with-name.jpg",
-    alt: "Caneca azul com nome personalizado",
+    url: "/galerias/03.jifif",
+    alt: "Caneca",
   },
 ];
 
