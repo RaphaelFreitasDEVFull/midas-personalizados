@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   title: "Midas Personalizados | Personalização Premium",
   description:
     "Canecas e camisetas personalizadas de alta qualidade. Transforme sua ideia em um produto único com acabamento profissional.",
-  
 };
 
 export default function RootLayout({
@@ -23,14 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <head> 
-          <meta charSet="UTF-8" />
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <meta charSet="UTF-8" />
       </head>
-      <body
-        className={`${geist.variable} font-sans antialiased`}
-        suppressHydrationWarning
-      >
+      <body className={`${geist.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
