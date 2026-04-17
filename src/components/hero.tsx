@@ -3,9 +3,9 @@ import { MessageCircle } from "lucide-react";
 import Image from "next/image";
 
 export function Hero() {
-  const whatsappNumber = "5541988673290"; // Replace with actual number
+  const whatsappNumber = "5541984602192"; // Replace with actual number
   const whatsappMessage = encodeURIComponent(
-    "Olá! Gostaria de fazer um orçamento para personalização."
+    "Olá! Gostaria de fazer um orçamento para personalização.",
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
