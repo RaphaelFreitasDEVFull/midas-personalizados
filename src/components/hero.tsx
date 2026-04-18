@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
+import { MugCustomizer } from "./mug-customizer";
 
 export function Hero() {
   const whatsappNumber = "5541984602192"; // Replace with actual number
@@ -54,15 +62,31 @@ export function Hero() {
         </p>
 
         {/* CTA Button */}
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-[#F2C94C] to-[#D4A017] hover:from-[#D4A017] hover:to-[#F2C94C] text-[#0C0C0C] font-semibold px-8 py-6 text-lg rounded-full gold-glow gold-glow-hover transition-all duration-300 shadow-2xl"
-          >
-            <MessageCircle className="mr-2 h-5 w-5" />
-            Fazer orçamento no WhatsApp
-          </Button>
-        </a>
+        <Dialog>
+          <DialogTrigger asChild>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#F2C94C] to-[#D4A017] hover:from-[#D4A017] hover:to-[#F2C94C] text-[#0C0C0C] font-semibold px-8 py-6 text-lg rounded-full gold-glow gold-glow-hover transition-all duration-300 shadow-2xl"
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Fazer orçamento no WhatsApp
+              </Button>
+            </a>
+          </DialogTrigger>
+
+          <DialogContent fullScreen>
+            <div className="flex flex-col h-full">
+              <DialogHeader className="p-6 pb-2">
+                <DialogTitle>Personalize sua caneca</DialogTitle>
+              </DialogHeader>
+
+              <div className="flex-1 overflow-hidden p-6 pt-0">
+                <MugCustomizer />
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
