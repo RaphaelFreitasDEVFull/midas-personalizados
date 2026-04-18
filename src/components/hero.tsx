@@ -64,15 +64,13 @@ export function Hero() {
         {/* CTA Button */}
         <Dialog>
           <DialogTrigger asChild>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-[#F2C94C] to-[#D4A017] hover:from-[#D4A017] hover:to-[#F2C94C] text-[#0C0C0C] font-semibold px-8 py-6 text-lg rounded-full gold-glow gold-glow-hover transition-all duration-300 shadow-2xl"
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Fazer orçamento no WhatsApp
-              </Button>
-            </a>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-[#F2C94C] to-[#D4A017] hover:from-[#D4A017] hover:to-[#F2C94C] text-[#0C0C0C] font-semibold px-8 py-6 text-lg rounded-full gold-glow gold-glow-hover transition-all duration-300 shadow-2xl"
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Fazer orçamento no WhatsApp
+            </Button>
           </DialogTrigger>
 
           <DialogContent fullScreen>
